@@ -6,7 +6,7 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 18:27:51 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/11 22:13:42 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/04/12 15:59:45 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,29 @@ static int		teflon_tape(va_list ap)
 {
 	char	**p_string;
 	int		i;
+	int		freed;
 
 	i = 0;
+	freed = 0;
 	p_string = va_arg(ap, char **);
 	while (p_string[i])
 		i++;
-	while (i > 0 && p_string[i])
+	while (freed < i && p_string[freed])
 	{
-		free(p_string[i++]);
+		free(p_string[freed++]);
 	}
 	free(p_string);
-	return (i);
+	return (i + 1);
 }
 
 static int		plunger(va_list ap, int depth)
 {
-	char *s;
-
-	if (depth == 1)
-	{
+	if (depth == 2)
 		return (teflon_tape(ap));
-	}
-	else
-	{
-		s = va_arg(ap, char*);
-		while (s)
-		{
-			free(s);
-			break ;
-		}
-		return (depth);
-	}
+	if (depth > 2)
+		return (1);
+	free(va_arg(ap, char*));
+	return (depth);
 }
 
 static int		pipe_cutter(char **str, va_list ap)
