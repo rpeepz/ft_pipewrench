@@ -6,13 +6,12 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 18:24:39 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/04/12 15:54:48 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/05/01 07:14:54 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_pipewrench.h"
-
-int		main(void)
+void	leakey_boi()
 {
 	char	*a;
 	char	*b;
@@ -44,20 +43,15 @@ int		main(void)
 	ft_putstr("		^^^^^^^^^^\n\n");
 
 	i = 0;
-	i = ft_pipewrench("-s-s-s--s", a, b, c, s);
+	i = ft_pipewrench("--s-s-s-s", s, a, b, c);
 	ft_putstr("free'd items: ");
 	ft_putnbr(i);
 	ft_putstr("\n\n");
 
-	a = malloc(4);
-	b = malloc(4);
-	c = malloc(4);
-	s = malloc(sizeof(char *) * 3);
-	s[0] = malloc(32);
-	s[1] = malloc(96);
-
-
+}
+int		main(void)
+{
+	leakey_boi();
 	system("leaks a.out");
-
 	return (0);
 }
