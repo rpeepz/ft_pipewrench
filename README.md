@@ -1,2 +1,3 @@
 # ft_pipewrench
-universal free function using the outline for ft_printf and va_list
+universal free function (char * & char **)
+using the outline for ft_printf and va_list
