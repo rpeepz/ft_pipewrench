@@ -6,11 +6,12 @@
 /*   By: rpapagna <rpapagna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 18:24:39 by rpapagna          #+#    #+#             */
-/*   Updated: 2019/05/01 07:14:54 by rpapagna         ###   ########.fr       */
+/*   Updated: 2019/11/02 00:10:54 by rpapagna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_pipewrench.h"
+
 void	leakey_boi()
 {
 	char	*a;
@@ -43,7 +44,7 @@ void	leakey_boi()
 	ft_putstr("		^^^^^^^^^^\n\n");
 
 	i = 0;
-	i = ft_pipewrench("--s-s-s-s", s, a, b, c);
+	// i = ft_pipewrench("--s-s-s-s", s, &a, &b, &c);
 	ft_putstr("free'd items: ");
 	ft_putnbr(i);
 	ft_putstr("\n\n");
@@ -52,6 +53,6 @@ void	leakey_boi()
 int		main(void)
 {
 	leakey_boi();
-	system("leaks a.out");
+	system("leaks pipe_test");
 	return (0);
 }
